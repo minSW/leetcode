@@ -19,7 +19,7 @@ class Solution {
         return left.zip(right).all{ (x, y) -> x == y }
     }
 
-
+    // recursively
     fun preorder(node: TreeNode?, reverse: Boolean = false): MutableList<Int?> {
         return node?.let {
             val result = mutableListOf<Int?>(it.`val`)
@@ -32,4 +32,28 @@ class Solution {
         } ?: mutableListOf<Int?>(null)
 
     }
+
+    // iteratively
+    fun preorder(node: TreeNode?, reverse: Boolean = false): MutableList<Int?> {
+        val result = mutableListOf<Int?>()
+        val stack = mutableListOf<TreeNode?>()
+        var now = node
+        while (true) {
+            if (now == null) {
+                result.add(null)
+                if (stack.isEmpty()) {
+                    break
+                }
+                now = if (!reverse) stack.last()?.right else stack.last()?.left
+                stack.remove(stack.last())
+                continue
+            }
+            result.add(now.`val`)
+            stack.add(now)
+            now = if (!reverse) now.left else now.right
+        }
+        return result
+    }
+
 }
+
