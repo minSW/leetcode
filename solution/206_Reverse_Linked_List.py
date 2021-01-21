@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    // recursively
+    # recursively
     def reverseList(self, head: ListNode) -> ListNode:
         tail = head
         while tail != None and tail.next != None :
@@ -20,7 +20,7 @@ class Solution:
         result.next = ListNode(node.val)
         return result.next
     
-    // iteratively
+    # iteratively
     def reverseList(self, head: ListNode) -> ListNode:
         prev = None
         now = head
