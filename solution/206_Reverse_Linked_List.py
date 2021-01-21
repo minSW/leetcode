@@ -4,6 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
+    // recursively
     def reverseList(self, head: ListNode) -> ListNode:
         tail = head
         while tail != None and tail.next != None :
@@ -18,3 +19,16 @@ class Solution:
         result = self.reverse(node.next)
         result.next = ListNode(node.val)
         return result.next
+    
+    // iteratively
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        now = head
+        
+        while now != None :
+            tmp = now.next
+            now.next = prev
+            prev = now
+            now = tmp
+        
+        return prev
