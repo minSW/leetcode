@@ -5,7 +5,7 @@ class Solution:
         elif len(s) * len(t) == 0 and len(s) + len(t) != 0:
             return True
         
-        distance_type = len(t) - len(s) # 1
+        distance_type = len(t) - len(s)
         edited = False
         
         i = 0
